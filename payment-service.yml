@@ -17,5 +17,7 @@ spring:
     admin:
       client:
         url: http://localhost:9090
+  health:
+      show-details: always
 server:
   port: 6004
