@@ -8,24 +8,29 @@
 #   kafka:
 #     bootstrap-servers: localhost:9092
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-  endpoint:
-    health:
-      show-details: always
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka
+server:
+  port: 6002
+
 spring:
   application:
     name: order-service
+
   boot:
     admin:
       client:
         url: http://localhost:9090
-server:
-  port: 6002
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+  endpoint:
+    health:
+      show-details: always
