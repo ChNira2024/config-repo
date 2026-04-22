@@ -18,4 +18,4 @@ spring:
       client:
         url: http://localhost:9090
 server:
-  port: '6004'
+  port: 6004
