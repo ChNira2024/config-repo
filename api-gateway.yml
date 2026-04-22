@@ -1,3 +1,6 @@
+server:
+  port: 6001
+
 spring:
   application:
     name: api-gateway
@@ -9,6 +12,8 @@ spring:
           uri: lb://ORDER-SERVICE
           predicates:
             - Path=/orders/**
-            
-server:
-  port: 6001
+
+        - id: inventory-service
+          uri: lb://INVENTORY-SERVICE
+          predicates:
+            - Path=/inventory/**
