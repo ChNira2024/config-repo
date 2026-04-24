@@ -17,3 +17,32 @@ spring:
           uri: lb://INVENTORY-SERVICE
           predicates:
             - Path=/inventory/**
+            
+        - id: payment-service
+          uri: lb://PAYMENT-SERVICE
+          predicates:
+            - Path=/payment/**
+            
+        - id: notification-service
+          uri: lb://NOTIFICATION-SERVICE
+          predicates:
+            - Path=/notify/**
+boot:
+    admin:
+      client:
+        url: http://localhost:9090
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+  endpoint:
+    health:
+      show-details: always
